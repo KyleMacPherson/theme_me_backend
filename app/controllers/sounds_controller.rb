@@ -6,7 +6,8 @@ class SoundsController < ApplicationController
   end
 
   def create
-    @sound = Sound.new(sound_params)
+    hash = JSON.parse(request.body.read)
+    @sound = Sound.new(url:(hash["url"]))
     if @sound.save
       render json: @sound
     else
@@ -19,17 +20,18 @@ class SoundsController < ApplicationController
     render json: @sound
   end
 
-  # def update
-  #   if @sound.update(sound_params)
-  #     head :no_content
-  #   else
-  #     render json: @sound.errors
-  #   end
-  # end
-  #
-  # def destroy
-  #   @sound.destroy
-  # end
+  def update
+    if @sound.update(sound_params)
+      head :no_content
+    else
+      render json: @sound.errors
+    end
+  end
+  
+  def destroy
+    sound = Sound.find(params[:id])
+    sound.destroy
+  end
 
   def sound_params
    params.require(:sound).permit(:url)
