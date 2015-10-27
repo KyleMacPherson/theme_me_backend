@@ -27,7 +27,7 @@ class SoundsController < ApplicationController
       render json: @sound.errors
     end
   end
-  
+
   def destroy
     sound = Sound.find(params[:id])
     sound.destroy
@@ -35,6 +35,6 @@ class SoundsController < ApplicationController
 
   def sound_params
    params.require(:sound).permit(:url)
- end
+  end
 
 end
