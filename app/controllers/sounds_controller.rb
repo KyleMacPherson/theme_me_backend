@@ -32,7 +32,8 @@ class SoundsController < ApplicationController
   end
 
   def destroy
-    sound = Sound.find(params[:id])
+    hash = JSON.parse(request.body.read)
+    sound = Sound.find(id:(hash["id"]))
     sound.destroy
   end
 
