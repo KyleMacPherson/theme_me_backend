@@ -8,7 +8,7 @@ gem 'rails-api'
 gem 'spring', :group => :development
 
 gem 'pg'
-
+gem 'rack-cors', :require => 'rack/cors'
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
