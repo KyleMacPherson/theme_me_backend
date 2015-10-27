@@ -9,7 +9,6 @@ class UsersController < ApplicationController
       hash = JSON.parse(request.body.read)
       @user = User.new(email:(hash["email"]), password:(hash["password"]), password_confirmation:(hash['password_confirmation']))
       if @user.save
-        log_in @user
         render json: @user
       else
         render json: @user.errors
@@ -21,6 +20,5 @@ class UsersController < ApplicationController
       def user_params
         params.require(:user).permit(:email, :password, :password_confirmation)
       end
-  end
 
-end
+  end
