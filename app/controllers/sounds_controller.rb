@@ -23,7 +23,8 @@ class SoundsController < ApplicationController
 
   def update
     hash = JSON.parse(request.body.read)
-    if @sound.update(sound_params)
+    @sound = Sound.find(id:(hash["id"]))
+    if @sound.update(url:(hash["url"]))
       head :no_content
     else
       render json: @sound.errors
