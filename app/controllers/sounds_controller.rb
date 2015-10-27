@@ -16,11 +16,13 @@ class SoundsController < ApplicationController
   end
 
   def show
-    @sound = Sound.find(params[:id])
+    hash = JSON.parse(request.body.read)
+    @sound = Sound.find(id:(hash["id"]))
     render json: @sound
   end
 
   def update
+    hash = JSON.parse(request.body.read)
     if @sound.update(sound_params)
       head :no_content
     else
