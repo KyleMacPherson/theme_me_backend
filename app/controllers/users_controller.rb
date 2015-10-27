@@ -2,24 +2,24 @@ class UsersController < ApplicationController
 
     def show
       @user = User.find(params[:id])
+      render json: @user
     end
 
     def create
-      @user = User.new(user_params)
+      hash = JSON.parse(request.body.read)
+      @user = User.new(email:(hash["email"]), password:(hash["password"]), password_confirmation:(hash['password_confirmation']))
       if @user.save
         log_in @user
-        flash[:success] = "Welcome to the Sample App!"
-        redirect_to @user
+        render json: @user
       else
-        render 'new'
+        render json: @user.errors
       end
     end
 
     private
 
       def user_params
-        params.require(:user).permit(:name, :email, :password,
-                                     :password_confirmation)
+        params.require(:user).permit(:email, :password, :password_confirmation)
       end
   end
 
