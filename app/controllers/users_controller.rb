@@ -29,11 +29,11 @@ class UsersController < ApplicationController
       @user.update(lat:(hash["lat"]))
       @user.update(lon:(hash["lon"]))
       @user.update(sound:(hash["sound"]))
-      # @lon = @user.lon.to_f
-      # @lat = @user.lat.to_f
-      # @total = []
-      # user2_coords
-      # coord_to_calc(@lon, @lat, user2_coords[0], user2_coords[1])
+      @lon = @user.lon.to_f
+      @lat = @user.lat.to_f
+      @total = []
+      user2_coords
+      coord_to_calc(@lon, @lat, user2_coords[0], user2_coords[1])
     end
 
     def user1_coords
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
     def user2_coords
       @array2 = []
-      user2 = User.find(22)
+      user2 = User.find(45)
       @array2 << user2.lon.to_f
       @array2 << user2.lat.to_f
       @array2
