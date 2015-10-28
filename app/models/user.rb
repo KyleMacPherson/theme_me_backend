@@ -1,4 +1,5 @@
 require 'bcrypt'
+require 'haversine'
 
 class User < ActiveRecord::Base
   has_secure_password
