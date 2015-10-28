@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     end
 
     def index
-      @users = Users.all
+      @users = User.all
       render json: @users
     end
 
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
     def user2_coords
       @array2 = []
-      user2 = User.find(45)
+      user2 = User.find(48)
       @array2 << user2.lon.to_f
       @array2 << user2.lat.to_f
       @array2
