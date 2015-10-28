@@ -62,9 +62,10 @@ class UsersController < ApplicationController
     end
 
     def close?(number)
-      if number <= 20 || final >= -20
+      if number <= 20000 || final >= -200000
         user2 = User.find(2)
         @user.foreign_url = user2.sound
+        p @user.foreign_url
       end
     end
 
