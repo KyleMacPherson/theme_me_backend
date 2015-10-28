@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'session/new'
-
+  resources :sessions
   resources :sounds
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
