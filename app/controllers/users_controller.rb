@@ -25,8 +25,10 @@ class UsersController < ApplicationController
     def update
       @user = User.find(params[:id])
       hash = JSON.parse(request.body.read)
+      p hash
       @user.update(lat:(hash["lat"]))
       @user.update(lon:(hash["lon"]))
+      @user.update(sound:(hash["sound"]))
       # @lon = @user.lon.to_f
       # @lat = @user.lat.to_f
       # @total = []
