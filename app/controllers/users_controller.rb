@@ -16,6 +16,13 @@ class UsersController < ApplicationController
       end
     end
 
+    def update
+      user = User.find(params[:id])
+      hash = JSON.parse(request.body.read)
+      user.update(lat:(hash["lat"]))
+      user.update(lon:(hash["lon"]))
+    end
+
     private
 
       def user_params
