@@ -30,3 +30,14 @@ class UsersController < ApplicationController
       end
 
   end
+
+
+  # user1 = User.find(params[:id])
+  # coord1 = user1.lat
+  # coord2 = user1.lon
+  #
+  # users = User.all?
+  # rest = users.delete(user1)
+  # rest.each do |user|
+  #
+  # end
