@@ -16,8 +16,7 @@ class SoundsController < ApplicationController
   end
 
   def show
-    hash = JSON.parse(request.body.read)
-    @sound = Sound.find(id:(hash["id"]))
+    @sound = Sound.find_by_user_id(params[:user_id])
     render json: @sound
   end
 
