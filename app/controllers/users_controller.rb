@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
     def user1_coords
       @array = []
-      @user1 = User.find(51)
+      @user1 = User.find(53)
       @array << @lat
       @array << @lon
       @total << @array
