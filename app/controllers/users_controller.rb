@@ -6,6 +6,11 @@ class UsersController < ApplicationController
       render json: user
     end
 
+    def index
+      @users = Users.all
+      render json: @users
+    end
+
     def create
       hash = JSON.parse(request.body.read)
       @user = User.new(email:(hash["email"]), password:(hash["password"]), password_confirmation:(hash['password_confirmation']), sound:(hash['sound']), lon:(hash['lon']), lat:(hash['lat']))
@@ -22,11 +27,11 @@ class UsersController < ApplicationController
       hash = JSON.parse(request.body.read)
       @user.update(lat:(hash["lat"]))
       @user.update(lon:(hash["lon"]))
-      @lon = user.lon.to_f
-      @lat = user.lat.to_f
-      @total = []
-      user2_coords
-      coord_to_calc(@lon, @lat, user2_coords[0], user2_coords[1])
+      # @lon = @user.lon.to_f
+      # @lat = @user.lat.to_f
+      # @total = []
+      # user2_coords
+      # coord_to_calc(@lon, @lat, user2_coords[0], user2_coords[1])
     end
 
     def user1_coords
