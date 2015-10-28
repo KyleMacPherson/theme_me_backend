@@ -38,6 +38,7 @@ class UsersController < ApplicationController
 
     def user1_coords
       @array = []
+      @user1 = User.find(51)
       @array << @lat
       @array << @lon
       @total << @array
@@ -45,9 +46,9 @@ class UsersController < ApplicationController
 
     def user2_coords
       @array2 = []
-      user2 = User.find(48)
-      @array2 << user2.lon.to_f
-      @array2 << user2.lat.to_f
+      @user2 = User.find(52)
+      @array2 << @user2.lon.to_f
+      @array2 << @user2.lat.to_f
       @array2
     end
 
@@ -63,9 +64,7 @@ class UsersController < ApplicationController
 
     def close?(number)
       if number <= 20000 || final >= -200000
-        user2 = User.find(51)
-        @user.foreign_url = user2.sound
-        p @user.foreign_url
+        @user1.foreign_url = @user2.sound
       end
     end
 
