@@ -150,6 +150,7 @@ DEPENDENCIES
   rack-cors
   rails (= 4.2.4)
   rails-api
+  rake
   rspec-rails
   shoulda
   spring
