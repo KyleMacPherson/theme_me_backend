@@ -12,6 +12,7 @@ gem 'rack-cors', :require => 'rack/cors'
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'factory_girl_rails'
 end
 gem 'haversine'
 
