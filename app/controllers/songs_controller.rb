@@ -34,7 +34,7 @@ class SongsController < ApplicationController
   def random
     songs = Song.all
     random_song = songs.to_a.shuffle.pop
-    render json: random_song
+    render json: random_song.url
   end
 
   private
