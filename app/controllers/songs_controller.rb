@@ -13,8 +13,8 @@ class SongsController < ApplicationController
     hash = JSON.parse(request.body.read)
     song = Song.new(url:(hash["url"]), person:(hash["person"]), comment:(hash['comment']))
     if song.save
-      p song.id
       render json: song.id
+      #by default send back object
     else
       render json: song.errors
     end
@@ -29,6 +29,7 @@ class SongsController < ApplicationController
     song = Song.find(params[:id])
     hash = JSON.parse(request.body.read)
     song.update(url:(hash["url"]))
+    #needs work, need to be more flexible
   end
 
   def random
